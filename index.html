@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+<h2>Student Registration Form</h2>
+
+<form id="registrationForm">
+
+<!-- First Name -->
+<div class="form-group">
+<label>First Name *</label>
+<input type="text" id="firstName">
+<small class="error"></small>
+</div>
+
+<!-- Middle Name -->
+<div class="form-group">
+<label>Middle Name</label>
+<input type="text" id="middleName">
+<small class="error"></small>
+</div>
+
+<!-- Last Name -->
+<div class="form-group">
+<label>Last Name *</label>
+<input type="text" id="lastName">
+<small class="error"></small>
+</div>
+
+<!-- Course -->
+<div class="form-group">
+<label>Course *</label>
+<select id="course">
+<option value="">Select Course</option>
+<option>BS Computer Science</option>
+<option>BS Information Technology</option>
+<option>BS Information Systems</option>
+</select>
+<small class="error"></small>
+</div>
+
+<!-- Password -->
+<!-- Password -->
+<div class="form-group">
+  <label for="password" data-required="*">Password</label>
+  <div class="password-container">
+    <input type="password" id="password" placeholder="Enter password">
+    <span class="toggle-eye" onclick="togglePassword('password', this)">👁️</span>
+  </div>
+  <div id="strengthMeter"></div>
+  <small id="strengthText"></small>
+  <div class="error"></div>
+</div>
+
+<div class="form-group">
+  <label for="confirmPassword">Confirm Password</label>
+  <div class="password-container">
+    <input type="password" id="confirmPassword" placeholder="Confirm password">
+    <span class="toggle-eye" onclick="togglePassword('confirmPassword', this)">👁️</span>
+  </div>
+  <div class="error"></div>
+</div>
+
+<!-- Gender -->
+<div class="form-group">
+    <label>Gender *</label>
+    <div class="gender-container">
+        <label class="radio-group"><input type="radio" name="gender"> Male</label>
+        <label class="radio-group"><input type="radio" name="gender"> Female</label>
+    </div>
+</div>
+
+<div class="terms-container">
+    <input type="checkbox" id="terms">
+    <label for="terms" style="margin-bottom:0">I accept Terms & Conditions *</label>
+</div>
+
+<!-- Terms -->
+
+
+<button type="submit">Register</button>
+
+</form>
+</div>
+
+<script src="script.js"></script>
+
+<!-- Success Modal -->
+<div id="successModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>🎉 Registration Successful!</h2>
+    <p>Your account has been created successfully.</p>
+    <button id="modalOkBtn">OK</button>
+  </div>
+</div>
+
+</body>
+
+</html>

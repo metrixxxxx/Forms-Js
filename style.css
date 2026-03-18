@@ -1,0 +1,299 @@
+/* =====================
+   BODY & BACKGROUND
+===================== */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #fff5a2, #ffb6c1); /* yellow to pink gradient */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  padding: 20px;
+  margin: 0;
+  min-height: 100vh;       /* make sure it fills the screen */
+}
+
+@keyframes gradientAnimation {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating circles in background */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 105, 180, 0.2);
+  animation: float 20s linear infinite;
+}
+
+body::before {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: -50px;
+}
+
+body::after {
+  width: 100px;
+  height: 100px;
+  bottom: 15%;
+  right: -40px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-50px) translateX(50px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* =====================
+   FORM CONTAINER
+===================== */
+.container {
+  background-color: #fff0f5;
+  padding: 35px 30px;
+  border-radius: 15px;
+  width: 360px;
+  max-width: 95%;
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+  z-index: 10;
+}
+
+h2 {
+  color: #d63384;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* =====================
+   FORM FIELDS
+===================== */
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #d63384;
+  cursor: pointer;
+}
+
+/* Inputs and select */
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.8px solid #ffc0cb;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  border-color: #ff69b4;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 20, 147, 0.3);
+}
+
+/* =====================
+   PASSWORD TOGGLE
+===================== */
+.password-container {
+  position: relative;
+}
+
+.password-container input {
+  padding-right: 42px;
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  cursor: pointer;
+  color: #d63384;
+  transition: color 0.3s;
+}
+
+.toggle-eye:hover {
+  color: #ff1493;
+}
+
+/* =====================
+   ERROR MESSAGES
+===================== */
+.error {
+  color: #ff4d6d;
+  font-size: 13px;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+/* =====================
+   PASSWORD STRENGTH METER
+===================== */
+#strengthMeter {
+  margin-top: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background-color: #ffe4ec;
+  transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+#strengthMeter.weak { width: 30%; background-color: red; }
+#strengthMeter.medium { width: 65%; background-color: violet; }
+#strengthMeter.strong { width: 100%; background-color: black; }
+
+small {
+  display: block;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* =====================
+   RADIO & CHECKBOX
+===================== */
+.gender-options,
+.terms-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.gender-options label,
+.terms-container label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  color: #333;
+  cursor: pointer;
+}
+
+.gender-options input[type="radio"],
+.terms-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* =====================
+   BUTTON
+===================== */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #ff69b4;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover { background-color: #ff1493; }
+button[type="submit"]:disabled {
+  background-color: #ffc0cb;
+  cursor: not-allowed;
+}
+
+/* =====================
+   MODAL
+===================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-content {
+  background-color: #fff0f5;
+  padding: 30px 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.modal-content h2 {
+  color: #d63384;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.modal-content p {
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.modal-content button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.modal-content button:hover {
+  background-color: #ff1493;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #d63384;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ff1493;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
