@@ -231,7 +231,7 @@ button[type="submit"]:disabled {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.4);
-  display: flex;
+  
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.3s ease forwards;
